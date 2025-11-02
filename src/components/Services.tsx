@@ -12,24 +12,24 @@ export default function Services() {
             alt: 'Penetration Testing Code'
         },
         {
-            icon: '/images/icons/shield-icon.png', // Replace with your icon
+            icon: '/images/services/icon2.png', // Replace with your icon
             title: 'Risk & Compliance Advisory',
             description: 'Meet global standards like ISO 27001 and GDPR. We help you navigate complex regulations and maintain continuous compliance.',
-            image: '/images/risk-compliance.png',
+            image: '/images/services/image2.png',
             alt: 'Risk & Compliance Dashboard'
         },
         {
-            icon: '/images/icons/mail-icon.png', // Replace with your icon
+            icon: '/images/services/icon3.png', // Replace with your icon
             title: 'Incident Response & SOC',
             description: 'Continuous threat monitoring and rapid recovery. Minimize downtime and protect your business with proactive defense and swift action.',
-            image: '/images/incident-response.png',
+            image: '/images/services/image3.png',
             alt: 'Incident Response SOC Monitors'
         },
         {
-            icon: '/images/icons/training-icon.png', // Replace with your icon
+            icon: '/images/services/icon4.png', // Replace with your icon
             title: 'Cybersecurity Training',
             description: 'Empower your teams through the AquilaCyber learning network. Build a security-first culture that strengthens your organization from within.',
-            image: '/images/cybersecurity-training.png',
+            image: '/images/services/image4.png',
             alt: 'Cybersecurity Training Session'
         }
     ]
