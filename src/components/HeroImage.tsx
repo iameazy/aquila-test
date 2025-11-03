@@ -11,7 +11,7 @@ export default function HeroImage() {
 
             {/* Image Container - Positioned to overlap both sections */}
             <div className="relative z-20 -mt-[90px] sm:-mt-[120px] md:-mt-[150px]">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl">
                         <div className="relative w-full h-[180px] sm:h-[240px] md:h-[300px]">
                             
