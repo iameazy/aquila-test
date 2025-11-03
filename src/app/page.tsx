@@ -4,6 +4,10 @@ import HeroImage from '@/components/HeroImage'
 import WhyTrustUs from '@/components/WhyTrustUs'
 import Services from '@/components/Services'
 import Industries from '@/components/Industries'
+import CaseStudies from '@/components/CaseStudies'
+import WhoWeAre from '@/components/WhoWeAre'
+import CyberFrontlineSection from '@/components/Cyber'
+import Footer from '@/components/Footer'
 
 
 export default function Home() {
@@ -15,9 +19,11 @@ export default function Home() {
       <WhyTrustUs />
       <Services />
       <Industries />
-
-      
-     
+      <CaseStudies />
+      <WhoWeAre />
+      <CyberFrontlineSection />
+      <Footer />  
+ 
     </main>
   )
 }

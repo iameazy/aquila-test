@@ -1,14 +1,14 @@
 'use client'
 
 export default function Industries() {
-  // Define industries with their position on circles (angle in degrees and which circle)
+  // Define industries with their position on circles - more evenly spaced angles
   const industries = [
-    { name: 'Technology', color: 'bg-blue-500', angle: 45, radius: 380 },
-    { name: 'Energy', color: 'bg-blue-400', angle: 90, radius: 380 },
-    { name: 'Healthcare', color: 'bg-orange-400', angle: 135, radius: 380 },
-    { name: 'Education', color: 'bg-amber-300', angle: 225, radius: 300 },
-    { name: 'Government\n& Education', color: 'bg-blue-300', angle: 180, radius: 300 },
-    { name: 'Finance &\nFintech', color: 'bg-orange-200', angle: 20, radius: 300 },
+    { name: 'Technology', color: 'bg-blue-500', angle: 30, radius: 320 },
+    { name: 'Energy', color: 'bg-blue-400', angle: 100, radius: 320 },
+    { name: 'Healthcare', color: 'bg-orange-400', angle: 160, radius: 320 },
+    { name: 'Finance &\nFintech', color: 'bg-orange-200', angle: 340, radius: 250 },
+    { name: 'Government\n& Education', color: 'bg-blue-300', angle: 200, radius: 250 },
+    { name: 'Education', color: 'bg-amber-300', angle: 260, radius: 250 },
   ]
 
   // Function to calculate position on circle
@@ -22,18 +22,10 @@ export default function Industries() {
   }
 
   return (
-    <section className="relative w-full bg-white py-16 sm:py-20 lg:py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Small title above */}
-        <p className="text-center text-sm text-gray-600 mb-12">
-          Industries We Serve
-        </p>
-
+    <section className="relative w-full bg-white py-12 sm:py-16 lg:py-20 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main circular design container */}
-        <div className="relative w-full max-w-5xl mx-auto aspect-square">
-          {/* Border frame */}
-          <div className="absolute inset-0 border-2 border-blue-400 rounded-lg"></div>
-
+        <div className="relative w-full max-w-4xl mx-auto aspect-square">
           {/* Animated rotating circles with bubbles */}
           <div className="absolute inset-0 animate-spin-slow">
             <svg className="w-full h-full" viewBox="0 0 800 800">
@@ -41,7 +33,7 @@ export default function Industries() {
               <circle
                 cx="400"
                 cy="400"
-                r="380"
+                r="320"
                 fill="none"
                 stroke="#E5E7EB"
                 strokeWidth="1"
@@ -49,7 +41,7 @@ export default function Industries() {
               <circle
                 cx="400"
                 cy="400"
-                r="300"
+                r="250"
                 fill="none"
                 stroke="#E5E7EB"
                 strokeWidth="1"
@@ -57,7 +49,7 @@ export default function Industries() {
               <circle
                 cx="400"
                 cy="400"
-                r="220"
+                r="180"
                 fill="none"
                 stroke="#E5E7EB"
                 strokeWidth="1"
@@ -70,19 +62,19 @@ export default function Industries() {
                   <g key={index}>
                     {/* Counter-rotate the bubbles to keep them upright */}
                     <foreignObject
-                      x={pos.x - 60}
-                      y={pos.y - 30}
-                      width="120"
-                      height="60"
+                      x={pos.x - 40}
+                      y={pos.y - 40}
+                      width="80"
+                      height="80"
                       style={{
                         transformOrigin: `${pos.x}px ${pos.y}px`,
                       }}
                     >
                       <div className="flex items-center justify-center h-full animate-spin-reverse-inline">
                         <div
-                          className={`${industry.color} rounded-full px-4 py-3 shadow-lg whitespace-pre-line text-center`}
+                          className={`${industry.color} rounded-full w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center shadow-lg`}
                         >
-                          <span className="text-white text-xs sm:text-sm font-semibold leading-tight">
+                          <span className="text-white text-[7px] sm:text-[8px] md:text-[9px] font-semibold leading-tight text-center px-1 whitespace-pre-line">
                             {industry.name}
                           </span>
                         </div>
@@ -94,16 +86,27 @@ export default function Industries() {
             </svg>
           </div>
 
-          {/* Center content - not rotating */}
+          {/* Center content - not rotating - fits inside smallest circle */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="text-center px-8 sm:px-12 max-w-2xl">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-dark leading-tight">
+            <div className="text-center px-4 sm:px-6 md:px-8 max-w-sm">
+              {/* Industries We Serve - now inside */}
+              <p className="text-[10px] sm:text-xs text-gray-500 mb-3 sm:mb-4 uppercase tracking-wide">
+                Industries We Serve
+              </p>
+              
+              {/* Main headline - smaller to fit */}
+              <h2 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-dark leading-tight">
                 Our solutions are built for organizations of all sizes — from startups to enterprises — across critical industries.
               </h2>
             </div>
           </div>
         </div>
       </div>
+
+       
+
+
+      
 
       <style jsx>{`
         @keyframes spin-slow {
@@ -132,6 +135,9 @@ export default function Industries() {
           animation: spin-reverse-inline 30s linear infinite;
         }
       `}</style>
+
+
+            
     </section>
   )
 }
