@@ -36,6 +36,8 @@ export default function Services() {
     ]
 
     const [visibleCards, setVisibleCards] = useState<number[]>([])
+    const [imageErrors, setImageErrors] = useState<number[]>([])
+    const [imageLoaded, setImageLoaded] = useState<number[]>([])
     const cardRefs = useRef<(HTMLDivElement | null)[]>([])
 
     useEffect(() => {
@@ -62,9 +64,18 @@ export default function Services() {
         }
     }, [])
 
+    const handleImageError = (index: number) => {
+        setImageErrors((prev) => [...prev, index])
+        console.error(`Failed to load image at index ${index}`)
+    }
+
+    const handleImageLoad = (index: number) => {
+        setImageLoaded((prev) => [...prev, index])
+    }
+
     return (
         <section className="relative w-full bg-gray-50 py-16 sm:py-20 lg:py-24">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="space-y-16 sm:space-y-20 lg:space-y-24">
                     {services.map((service, index) => (
                         <div
@@ -87,8 +98,10 @@ export default function Services() {
                                         <Image
                                             src={service.icon}
                                             alt={`${service.title} icon`}
-                                            fill
+                                            width={48}
+                                            height={48}
                                             className="object-contain"
+                                            onError={() => handleImageError(index * 10)} // Different ID for icons
                                         />
                                     </div>
                                     <h3 className="text-2xl sm:text-3xl font-bold text-dark transform transition-all duration-500 hover:text-blue-600">
@@ -104,19 +117,51 @@ export default function Services() {
                                 </div>
                             </div>
 
-                            {/* Image Section */}
-                            <div className="w-full h-64 sm:h-80 md:h-96 relative rounded-lg overflow-hidden shadow-lg group">
-                                <div className="relative w-full h-full transform transition-transform duration-700 ease-out group-hover:scale-110">
-                                    <Image
-                                        src={service.image}
-                                        alt={service.alt}
-                                        fill
-                                        className="object-cover"
-                                        priority
-                                    />
+                            {/* Image Section - Optimized for Mobile */}
+                            <div className="w-full relative rounded-xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 group bg-gray-200 hover:-translate-y-1">
+                                {/* Fixed aspect ratio container - 21:9 (wider, shorter) */}
+                                <div className="relative w-full" style={{ paddingBottom: '42.85%' }}>
+                                    {/* Loading skeleton */}
+                                    {!imageLoaded.includes(index) && !imageErrors.includes(index) && (
+                                        <div className="absolute inset-0 bg-gray-300 animate-pulse">
+                                            <div className="flex items-center justify-center h-full">
+                                                <div className="text-gray-500">Loading...</div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Error state */}
+                                    {imageErrors.includes(index) && (
+                                        <div className="absolute inset-0 bg-gray-300 flex items-center justify-center">
+                                            <div className="text-center p-4">
+                                                <svg className="w-12 h-12 mx-auto text-gray-400 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                </svg>
+                                                <p className="text-sm text-gray-500">Image not available</p>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* Actual image */}
+                                    <div className={`absolute inset-0 transform transition-transform duration-700 ease-out group-hover:scale-110 ${
+                                        imageLoaded.includes(index) ? 'opacity-100' : 'opacity-0'
+                                    }`}>
+                                        <Image
+                                            src={service.image}
+                                            alt={service.alt}
+                                            fill
+                                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
+                                            className="object-cover"
+                                            loading={index === 0 ? 'eager' : 'lazy'} // Only first image eager
+                                            quality={85} // Reduce quality slightly for better performance
+                                            onLoad={() => handleImageLoad(index)}
+                                            onError={() => handleImageError(index)}
+                                        />
+                                    </div>
+
+                                    {/* Overlay on hover */}
+                                    <div className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none"></div>
                                 </div>
-                                {/* Overlay on hover */}
-                                <div className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-10 transition-opacity duration-500"></div>
                             </div>
                         </div>
                     ))}
@@ -146,6 +191,19 @@ export default function Services() {
 
                 .animate-fade-in-up {
                     animation: fadeInUp 1s ease-out 0.5s both;
+                }
+
+                @keyframes pulse {
+                    0%, 100% {
+                        opacity: 1;
+                    }
+                    50% {
+                        opacity: 0.5;
+                    }
+                }
+
+                .animate-pulse {
+                    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
                 }
             `}</style>
         </section>
