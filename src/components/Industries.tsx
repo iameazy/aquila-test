@@ -21,55 +21,55 @@ export default function Industries() {
 
   // Define industries with enhanced properties
   const industries = [
-    { 
-      name: 'Technology', 
-      color: 'bg-blue-500', 
-      angle: 30, 
+    {
+      name: 'Technology',
+      color: 'bg-blue-500',
+      angle: 30,
       radius: 320,
       icon: '💻',
       description: 'Software & IT Solutions',
       gradient: 'from-blue-400 to-blue-600'
     },
-    { 
-      name: 'Energy', 
-      color: 'bg-blue-400', 
-      angle: 100, 
+    {
+      name: 'Energy',
+      color: 'bg-blue-400',
+      angle: 100,
       radius: 320,
       icon: '⚡',
       description: 'Power & Utilities',
       gradient: 'from-blue-300 to-blue-500'
     },
-    { 
-      name: 'Healthcare', 
-      color: 'bg-orange-400', 
-      angle: 160, 
+    {
+      name: 'Healthcare',
+      color: 'bg-orange-400',
+      angle: 160,
       radius: 320,
       icon: '🏥',
       description: 'Medical & Health Services',
       gradient: 'from-orange-300 to-orange-500'
     },
-    { 
-      name: 'Finance &\nFintech', 
-      color: 'bg-orange-200', 
-      angle: 340, 
+    {
+      name: 'Finance &\nFintech',
+      color: 'bg-orange-200',
+      angle: 340,
       radius: 250,
       icon: '💰',
       description: 'Banking & Financial Tech',
       gradient: 'from-orange-100 to-orange-300'
     },
-    { 
-      name: 'Government\n& Education', 
-      color: 'bg-blue-300', 
-      angle: 200, 
+    {
+      name: 'Government\n& Education',
+      color: 'bg-blue-300',
+      angle: 200,
       radius: 250,
       icon: '🏛️',
       description: 'Public Sector & Learning',
       gradient: 'from-blue-200 to-blue-400'
     },
-    { 
-      name: 'Education', 
-      color: 'bg-amber-300', 
-      angle: 260, 
+    {
+      name: 'Education',
+      color: 'bg-amber-300',
+      angle: 260,
       radius: 250,
       icon: '📚',
       description: 'Academic Institutions',
@@ -97,7 +97,8 @@ export default function Industries() {
   }
 
   return (
-    <section 
+    <section
+      id="industries"
       ref={sectionRef}
       className="relative w-full bg-white py-12 sm:py-16 lg:py-20 overflow-hidden"
       onMouseMove={handleMouseMove}
@@ -173,7 +174,7 @@ export default function Industries() {
         </motion.div>
 
         {/* Main circular design container */}
-        <motion.div 
+        <motion.div
           ref={containerRef}
           className="relative w-full max-w-4xl mx-auto aspect-square"
           style={{
@@ -182,7 +183,7 @@ export default function Industries() {
           }}
         >
           {/* Enhanced rotating circles with animated glow */}
-          <motion.div 
+          <motion.div
             className="absolute inset-0"
             animate={{ rotate: 360 }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -210,7 +211,7 @@ export default function Industries() {
                 strokeWidth="2"
                 opacity="1"
               />
-              
+
               {/* Middle circle */}
               <motion.circle
                 cx="400"
@@ -239,7 +240,7 @@ export default function Industries() {
                 const nextIndex = (i + 2) % industries.length
                 const pos1 = getPosition(industry.angle, industry.radius)
                 const pos2 = getPosition(industries[nextIndex].angle, industries[nextIndex].radius)
-                
+
                 return (
                   <motion.line
                     key={`line-${i}`}
@@ -258,7 +259,7 @@ export default function Industries() {
               {/* Industry bubbles with enhanced animations */}
               {industries.map((industry, index) => {
                 const pos = getPosition(industry.angle, industry.radius)
-                
+
                 return (
                   <g key={index}>
                     {/* Glow effect under bubble */}
@@ -287,7 +288,7 @@ export default function Industries() {
                         transformOrigin: `50px 50px`,
                       }}
                     >
-                      <motion.div 
+                      <motion.div
                         className="flex items-center justify-center h-full"
                         animate={{ rotate: -360 }}
                         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -296,7 +297,7 @@ export default function Industries() {
                           className={`bg-gradient-to-br ${industry.gradient} rounded-full w-16 h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 flex flex-col items-center justify-center shadow-lg cursor-pointer relative overflow-hidden group`}
                           onHoverStart={() => setHoveredIndex(index)}
                           onHoverEnd={() => setHoveredIndex(null)}
-                          whileHover={{ 
+                          whileHover={{
                             scale: 1.3,
                             boxShadow: '0 20px 40px rgba(0,0,0,0.2)',
                             zIndex: 50,
@@ -311,7 +312,7 @@ export default function Industries() {
                           />
 
                           {/* Icon */}
-                          <motion.span 
+                          <motion.span
                             className="text-xl sm:text-2xl mb-0.5"
                             whileHover={{ scale: 1.2, rotate: 360 }}
                             transition={{ duration: 0.5 }}
@@ -386,7 +387,7 @@ export default function Industries() {
 
           {/* Center content - enhanced with animations */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <motion.div 
+            <motion.div
               className="text-center px-4 sm:px-6 md:px-8 max-w-sm"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -408,9 +409,9 @@ export default function Industries() {
                   />
                 </p>
               </motion.div>
-              
+
               {/* Main headline with stagger */}
-              <motion.h2 
+              <motion.h2
                 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-dark leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
@@ -455,7 +456,7 @@ export default function Industries() {
             whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Explore Industries</span>
-            
+
             {/* Shimmer effect */}
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"

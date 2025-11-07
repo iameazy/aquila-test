@@ -37,7 +37,7 @@ export default function CTAFooter() {
     const words = headingText.split(' ')
 
     return (
-        <section ref={sectionRef} className="relative w-full overflow-hidden">
+        <section ref={sectionRef} id='partner' className="relative w-full overflow-hidden">
             {/* Animated Curved Top */}
             <div className="absolute top-0 left-0 right-0 z-10">
                 <svg

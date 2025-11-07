@@ -57,7 +57,7 @@ const CyberFrontlineSection = () => {
     ];
 
     return (
-        <section ref={sectionRef} className="relative bg-[#0a0a0a] pt-16 md:pt-20 lg:pt-24">
+        <section ref={sectionRef} id='insights' className="relative bg-[#0a0a0a] pt-16 md:pt-20 lg:pt-24">
             {/* Animated Curved transition */}
             <motion.div 
                 className="relative -mt-[90px] sm:-mt-[120px] md:-mt-[150px] z-10"

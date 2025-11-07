@@ -66,7 +66,7 @@ export default function Services() {
     }
 
     return (
-        <section ref={sectionRef} className="relative w-full bg-gray-50 py-16 sm:py-20 lg:py-24 overflow-hidden">
+        <section ref={sectionRef} id='services' className="relative w-full bg-gray-50 py-16 sm:py-20 lg:py-24 overflow-hidden">
             {/* Animated Background Elements */}
             {isMounted && (
                 <>

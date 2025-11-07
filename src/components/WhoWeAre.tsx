@@ -28,7 +28,8 @@ const WhoWeAre = () => {
   const words = heading.split(" ");
 
   return (
-    <section 
+    <section
+      id='about'
       ref={sectionRef}
       className="relative min-h-screen bg-[#121212] pb-64 overflow-hidden md:px-8 lg:px-12"
     >
@@ -103,16 +104,16 @@ const WhoWeAre = () => {
       )}
 
       {/* Curved bottom gradient with animation */}
-      <motion.div 
+      <motion.div
         className="absolute bottom-0 left-0 right-0 h-32 lg:h-40 rounded-t-[50%] bg-gradient-radial from-gray-200/20 to-transparent pointer-events-none"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1 }}
       />
-      
+
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* About tag - Enhanced Animation */}
-        <motion.div 
+        <motion.div
           className="text-xs md:text-sm uppercase tracking-[2px] mb-5 lg:mb-2 relative inline-block"
           initial={{ opacity: 0, y: -20 }}
           animate={isInView ? { opacity: 0.8, y: 0 } : {}}
@@ -126,7 +127,7 @@ const WhoWeAre = () => {
           >
             About AlturaCyber
           </motion.span>
-          
+
           {/* Underline animation */}
           <motion.span
             className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"
@@ -135,12 +136,12 @@ const WhoWeAre = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
           />
         </motion.div>
-        
+
         {/* Content wrapper */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          
+
           {/* Image - Enhanced with parallax and effects */}
-          <motion.div 
+          <motion.div
             ref={imageRef}
             className="order-1 lg:order-2 relative"
             initial={{ opacity: 0, x: 100 }}
@@ -207,9 +208,9 @@ const WhoWeAre = () => {
               />
 
               {/* Overlay on hover */}
-              <motion.div 
+              <motion.div
                 className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-purple-600/0 pointer-events-none"
-                whileHover={{ 
+                whileHover={{
                   background: 'linear-gradient(to bottom right, rgba(37, 99, 235, 0.1), rgba(147, 51, 234, 0.1))'
                 }}
                 transition={{ duration: 0.5 }}
@@ -255,9 +256,9 @@ const WhoWeAre = () => {
               </>
             )}
           </motion.div>
-          
+
           {/* Text content - Enhanced animations */}
-          <motion.div 
+          <motion.div
             className="order-2 lg:order-1"
             style={{ y: textY }}
           >
@@ -287,14 +288,14 @@ const WhoWeAre = () => {
                 </motion.span>
               ))}
             </div>
-            
+
             {/* Description box - Enhanced */}
-            <motion.div 
+            <motion.div
               className="relative bg-gradient-to-r from-white/5 to-transparent border-l-4 border-[#4a6fa5] p-6 md:p-8 mb-8 lg:mb-12 rounded-r-lg overflow-hidden group"
               initial={{ opacity: 0, x: -50 }}
               animate={isInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
-              whileHover={{ 
+              whileHover={{
                 background: 'linear-gradient(to right, rgba(255,255,255,0.1), transparent)',
                 borderColor: '#6b8db8'
               }}
@@ -310,15 +311,15 @@ const WhoWeAre = () => {
               {/* Corner accent */}
               <motion.div
                 className="absolute top-0 left-0 w-0 h-0 border-t-2 border-l-2 border-blue-400/0"
-                whileHover={{ 
-                  width: 20, 
-                  height: 20, 
-                  borderColor: 'rgba(96, 165, 250, 0.5)' 
+                whileHover={{
+                  width: 20,
+                  height: 20,
+                  borderColor: 'rgba(96, 165, 250, 0.5)'
                 }}
                 transition={{ duration: 0.3 }}
               />
 
-              <motion.p 
+              <motion.p
                 className="text-base md:text-lg lg:text-xl text-gray-200 leading-relaxed relative z-10"
                 initial={{ opacity: 0 }}
                 animate={isInView ? { opacity: 1 } : {}}
@@ -340,16 +341,16 @@ const WhoWeAre = () => {
                 style={{ opacity: 0.05 }}
               />
             </motion.div>
-            
+
             {/* CTA Button - Enhanced */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <motion.button 
+              <motion.button
                 className="w-full md:w-auto px-12 py-4 bg-[#3d5a80] text-white text-sm md:text-base font-semibold uppercase tracking-wider rounded-full border-2 border-transparent relative overflow-hidden group"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05,
                   borderColor: '#6b8db8',
                   boxShadow: '0 10px 40px rgba(74,111,165,0.4)'
@@ -357,7 +358,7 @@ const WhoWeAre = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="relative z-10">Learn More About Us</span>
-                
+
                 {/* Shimmer effect */}
                 <motion.div
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
