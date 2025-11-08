@@ -161,16 +161,6 @@ export default function Industries() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <motion.div
-            className="inline-block"
-            initial={{ scale: 0 }}
-            animate={isInView ? { scale: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <span className="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-4">
-              Industries We Protect
-            </span>
-          </motion.div>
         </motion.div>
 
         {/* Main circular design container */}
@@ -401,12 +391,6 @@ export default function Industries() {
               >
                 <p className="text-[10px] sm:text-xs text-gray-500 mb-3 sm:mb-4 uppercase tracking-wide relative inline-block">
                   Industries We Serve
-                  <motion.span
-                    className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-500 to-orange-500"
-                    initial={{ width: 0 }}
-                    animate={isInView ? { width: '100%' } : {}}
-                    transition={{ duration: 0.8, delay: 1.9 }}
-                  />
                 </p>
               </motion.div>
 

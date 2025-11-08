@@ -12,7 +12,7 @@ export default function Navbar() {
   const { scrollY } = useScroll()
 
   const navItems = [
-    { name: 'SERVICES', href: '#services', hasDropdown: true },
+    { name: 'SERVICES', href: '/services', hasDropdown: true },
     { name: 'INDUSTRIES', href: '#industries', hasDropdown: true },
     { name: 'ABOUT', href: '#about', hasDropdown: true },
     { name: 'INSIGHTS', href: '#insights', hasDropdown: true },
@@ -52,17 +52,17 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ 
           y: hidden ? -100 : 0,
-          backgroundColor: isScrolled ? 'rgba(10, 10, 10, 0.95)' : 'rgba(10, 10, 10, 0.90)'
+          backgroundColor: 'rgba(255, 255, 255, 0)'
         }}
         transition={{ duration: 0.3 }}
         className="fixed top-0 w-full backdrop-blur-sm z-50"
         style={{
-          backdropFilter: isScrolled ? 'blur(12px)' : 'blur(8px)',
+          backdropFilter: 'blur(8px)',
         }}
       >
         {/* Animated border bottom */}
         <motion.div
-          className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"
+          className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ 
             scaleX: isScrolled ? 1 : 0,
@@ -85,7 +85,7 @@ export default function Navbar() {
               >
                 {/* Glow effect on hover */}
                 <motion.div
-                  className="absolute inset-0 bg-primary/10 rounded-full"
+                  className="absolute inset-0 bg-white/10 rounded-full"
                   initial={{ opacity: 0 }}
                   whileHover={{ opacity: 1 }}
                   transition={{ duration: 0.3 }}
@@ -94,22 +94,14 @@ export default function Navbar() {
                 {/* Animated Shield Icon */}
                 <motion.div 
                   className="w-8 h-8 rounded-full border-2 border-white flex items-center justify-center relative z-10"
-                  animate={{
-                    boxShadow: [
-                      '0 0 0px rgba(255, 140, 66, 0)',
-                      '0 0 10px rgba(255, 140, 66, 0.5)',
-                      '0 0 0px rgba(255, 140, 66, 0)'
-                    ]
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
+                  whileHover={{ rotate: 360 }}
+                  transition={{ duration: 0.6 }}
                 >
                   <motion.svg 
                     className="w-5 h-5 text-white" 
                     fill="none" 
                     stroke="currentColor" 
                     viewBox="0 0 24 24"
-                    whileHover={{ rotate: 360 }}
-                    transition={{ duration: 0.6 }}
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </motion.svg>
@@ -151,7 +143,7 @@ export default function Navbar() {
                       
                       {/* Animated underline */}
                       <motion.div
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-white"
                         initial={{ scaleX: 0 }}
                         whileHover={{ scaleX: 1 }}
                         transition={{ duration: 0.3 }}
@@ -159,7 +151,7 @@ export default function Navbar() {
 
                       {/* Glow effect on hover */}
                       <motion.div
-                        className="absolute inset-0 bg-primary/10 rounded -z-10"
+                        className="absolute inset-0 bg-white/10 rounded -z-10"
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileHover={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.3 }}
@@ -184,7 +176,7 @@ export default function Navbar() {
                     
                     {/* Animated underline */}
                     <motion.div
-                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
+                      className="absolute bottom-0 left-0 right-0 h-0.5 bg-white"
                       initial={{ scaleX: 0 }}
                       whileHover={{ scaleX: 1 }}
                       transition={{ duration: 0.3 }}
@@ -200,10 +192,10 @@ export default function Navbar() {
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
                 <motion.button 
-                  className="px-6 py-2.5 bg-primary rounded-full text-black text-sm font-bold relative overflow-hidden group"
+                  className="px-6 py-2.5 bg-slate-700 rounded-full text-white text-sm font-bold relative overflow-hidden group"
                   whileHover={{ 
                     scale: 1.05,
-                    boxShadow: '0 0 25px rgba(255, 140, 66, 0.6)'
+                    backgroundColor: '#475569'
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -211,24 +203,13 @@ export default function Navbar() {
                   
                   {/* Shimmer effect */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30"
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
                     initial={{ x: '-100%' }}
                     animate={{ x: '100%' }}
                     transition={{
                       duration: 2,
                       repeat: Infinity,
                       repeatDelay: 1
-                    }}
-                  />
-
-                  {/* Pulse effect on hover */}
-                  <motion.div
-                    className="absolute inset-0 bg-white rounded-full"
-                    initial={{ scale: 0, opacity: 0.5 }}
-                    whileHover={{ 
-                      scale: 1.5, 
-                      opacity: 0,
-                      transition: { duration: 0.6 }
                     }}
                   />
                 </motion.button>
@@ -260,14 +241,6 @@ export default function Navbar() {
                   />
                 </svg>
               </motion.div>
-
-              {/* Glow effect */}
-              <motion.div
-                className="absolute inset-0 bg-primary/20 rounded-full blur-lg"
-                initial={{ scale: 0 }}
-                animate={{ scale: isOpen ? 1 : 0 }}
-                transition={{ duration: 0.3 }}
-              />
             </motion.button>
           </div>
         </div>
@@ -289,25 +262,16 @@ export default function Navbar() {
 
             {/* Menu Panel */}
             <motion.div
-              className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-dark z-50 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white z-50 lg:hidden overflow-y-auto"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
             >
-              {/* Animated gradient background */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5"
-                animate={{
-                  opacity: [0.3, 0.5, 0.3]
-                }}
-                transition={{ duration: 3, repeat: Infinity }}
-              />
-
               {/* Close button */}
               <div className="flex justify-end p-6 relative z-10">
                 <motion.button
-                  className="text-white/70 hover:text-white"
+                  className="text-black/70 hover:text-black"
                   onClick={() => setIsOpen(false)}
                   whileHover={{ scale: 1.1, rotate: 90 }}
                   whileTap={{ scale: 0.9 }}
@@ -330,22 +294,14 @@ export default function Navbar() {
                   >
                     <Link href={item.href}>
                       <motion.div
-                        className="block text-white text-sm font-medium py-3 px-4 rounded-lg relative overflow-hidden cursor-pointer group"
+                        className="block text-black text-sm font-medium py-3 px-4 rounded-lg relative overflow-hidden cursor-pointer group"
                         onClick={() => setIsOpen(false)}
-                        whileHover={{ x: 10 }}
+                        whileHover={{ x: 10, backgroundColor: 'rgba(241, 245, 249, 1)' }}
                         whileTap={{ scale: 0.95 }}
                       >
-                        {/* Hover background */}
-                        <motion.div
-                          className="absolute inset-0 bg-primary/10"
-                          initial={{ x: '-100%' }}
-                          whileHover={{ x: 0 }}
-                          transition={{ duration: 0.3 }}
-                        />
-
                         {/* Left border indicator */}
                         <motion.div
-                          className="absolute left-0 top-0 bottom-0 w-1 bg-primary"
+                          className="absolute left-0 top-0 bottom-0 w-1 bg-slate-700"
                           initial={{ scaleY: 0 }}
                           whileHover={{ scaleY: 1 }}
                           transition={{ duration: 0.3 }}
@@ -355,7 +311,7 @@ export default function Navbar() {
 
                         {/* Arrow icon */}
                         <motion.span
-                          className="absolute right-4 top-1/2 -translate-y-1/2 text-primary"
+                          className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-700"
                           initial={{ opacity: 0, x: -10 }}
                           whileHover={{ opacity: 1, x: 0 }}
                           transition={{ duration: 0.3 }}
@@ -376,20 +332,13 @@ export default function Navbar() {
                 >
                   <Link href="/partner">
                     <motion.div
-                      className="block text-white text-sm font-medium py-3 px-4 rounded-lg relative overflow-hidden cursor-pointer"
+                      className="block text-black text-sm font-medium py-3 px-4 rounded-lg relative overflow-hidden cursor-pointer"
                       onClick={() => setIsOpen(false)}
-                      whileHover={{ x: 10 }}
+                      whileHover={{ x: 10, backgroundColor: 'rgba(241, 245, 249, 1)' }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <motion.div
-                        className="absolute inset-0 bg-primary/10"
-                        initial={{ x: '-100%' }}
-                        whileHover={{ x: 0 }}
-                        transition={{ duration: 0.3 }}
-                      />
-
-                      <motion.div
-                        className="absolute left-0 top-0 bottom-0 w-1 bg-primary"
+                        className="absolute left-0 top-0 bottom-0 w-1 bg-slate-700"
                         initial={{ scaleY: 0 }}
                         whileHover={{ scaleY: 1 }}
                         transition={{ duration: 0.3 }}
@@ -398,7 +347,7 @@ export default function Navbar() {
                       <span className="relative z-10">PARTNER WITH US</span>
 
                       <motion.span
-                        className="absolute right-4 top-1/2 -translate-y-1/2 text-primary"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-700"
                         initial={{ opacity: 0, x: -10 }}
                         whileHover={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3 }}
@@ -418,7 +367,7 @@ export default function Navbar() {
                   className="pt-4"
                 >
                   <motion.button 
-                    className="w-full px-6 py-3 bg-primary rounded-full text-black text-sm font-bold relative overflow-hidden"
+                    className="w-full px-6 py-3 bg-slate-700 hover:bg-slate-600 rounded-full text-white text-sm font-bold relative overflow-hidden"
                     onClick={() => setIsOpen(false)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
@@ -427,7 +376,7 @@ export default function Navbar() {
 
                     {/* Animated shine effect */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-30"
+                      className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20"
                       animate={{ x: ['-100%', '100%'] }}
                       transition={{
                         duration: 1.5,
@@ -441,12 +390,12 @@ export default function Navbar() {
 
               {/* Footer */}
               <motion.div
-                className="absolute bottom-6 left-6 right-6 border-t border-white/10 pt-4 relative z-10"
+                className="absolute bottom-6 left-6 right-6 border-t border-black/10 pt-4 relative z-10"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.6 }}
               >
-                <p className="text-xs text-white/40">© 2024 AlturaCyber</p>
+                <p className="text-xs text-black/40">© 2024 AlturaCyber</p>
               </motion.div>
             </motion.div>
           </>

@@ -289,55 +289,17 @@ export default function Hero() {
                 whileHover={{ 
                   y: -10,
                   scale: 1.05,
-                  borderColor: 'rgba(255, 140, 66, 0.5)',
-                  boxShadow: '0 20px 40px rgba(255, 140, 66, 0.1)'
                 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Animated border gradient */}
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10" />
-                
-                {/* Number badge */}
-                <motion.div 
-                  className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-black font-bold text-sm"
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ delay: index * 0.1 + 0.5, type: "spring" }}
-                >
-                  {index + 1}
-                </motion.div>
-
                 <p className="text-base font-medium leading-relaxed text-white relative z-10">
                   {feature}
                 </p>
-
-                {/* Hover indicator */}
-                <motion.div
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-primary"
-                  initial={{ scaleX: 0 }}
-                  whileHover={{ scaleX: 1 }}
-                  transition={{ duration: 0.3 }}
-                />
               </motion.div>
             ))}
           </motion.div>
         </motion.div>
       </motion.div>
-
-      {/* Animated scan lines */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div
-          className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"
-          animate={{
-            top: ['0%', '100%']
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "linear"
-          }}
-        />
-      </div>
 
       {/* CSS Animations */}
       <style jsx>{`

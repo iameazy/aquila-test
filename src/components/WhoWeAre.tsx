@@ -103,13 +103,7 @@ const WhoWeAre = () => {
         </>
       )}
 
-      {/* Curved bottom gradient with animation */}
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 h-32 lg:h-40 rounded-t-[50%] bg-gradient-radial from-gray-200/20 to-transparent pointer-events-none"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1 }}
-      />
+     
 
       <div className="relative z-10 max-w-7xl mx-auto">
         {/* About tag - Enhanced Animation */}
@@ -127,14 +121,6 @@ const WhoWeAre = () => {
           >
             About AlturaCyber
           </motion.span>
-
-          {/* Underline animation */}
-          <motion.span
-            className="absolute -bottom-1 left-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"
-            initial={{ width: 0 }}
-            animate={isInView ? { width: '100%' } : {}}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          />
         </motion.div>
 
         {/* Content wrapper */}
@@ -150,28 +136,7 @@ const WhoWeAre = () => {
             style={{ y: imageY }}
           >
             <div className="relative rounded-lg overflow-hidden shadow-2xl group">
-              {/* Animated frame corners */}
-              {[0, 1, 2, 3].map((i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-6 h-6 border-2 border-blue-400 z-20"
-                  style={{
-                    top: i < 2 ? 0 : 'auto',
-                    bottom: i >= 2 ? 0 : 'auto',
-                    left: i % 2 === 0 ? 0 : 'auto',
-                    right: i % 2 === 1 ? 0 : 'auto',
-                    borderTop: i < 2 ? '2px solid #60A5FA' : 'none',
-                    borderBottom: i >= 2 ? '2px solid #60A5FA' : 'none',
-                    borderLeft: i % 2 === 0 ? '2px solid #60A5FA' : 'none',
-                    borderRight: i % 2 === 1 ? '2px solid #60A5FA' : 'none',
-                  }}
-                  initial={{ scale: 0, opacity: 0 }}
-                  animate={isImageInView ? { scale: 1, opacity: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
-                />
-              ))}
-
-              {/* Scan line effect */}
+             {/* Scan line effect */}
               {isMounted && (
                 <motion.div
                   className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent z-10 pointer-events-none"
@@ -200,12 +165,6 @@ const WhoWeAre = () => {
                 />
               </motion.div>
 
-              {/* Animated border */}
-              <motion.div
-                className="absolute inset-0 border-2 border-blue-400/0 rounded-lg pointer-events-none"
-                whileHover={{ borderColor: 'rgba(96, 165, 250, 0.5)' }}
-                transition={{ duration: 0.3 }}
-              />
 
               {/* Overlay on hover */}
               <motion.div
@@ -215,17 +174,6 @@ const WhoWeAre = () => {
                 }}
                 transition={{ duration: 0.5 }}
               />
-
-              {/* Floating info badge */}
-              <motion.div
-                className="absolute top-4 left-4 px-4 py-2 bg-blue-500/90 backdrop-blur-sm rounded-full text-white text-xs font-semibold"
-                initial={{ opacity: 0, y: -20 }}
-                animate={isImageInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.8 }}
-                whileHover={{ scale: 1.1 }}
-              >
-                Since 2025
-              </motion.div>
             </div>
 
             {/* Floating shapes around image */}

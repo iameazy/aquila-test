@@ -77,23 +77,9 @@ export default function HeroImage() {
                         style={{ scale: imageScale }}
                         whileHover={{ 
                             scale: 1.02,
-                            boxShadow: "0 25px 50px -12px rgba(255, 140, 66, 0.25)"
+                            boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.3)"
                         }}
                     >
-                        {/* Animated border glow */}
-                        <motion.div
-                            className="absolute inset-0 rounded-2xl z-10 pointer-events-none"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: [0, 1, 0] }}
-                            transition={{
-                                duration: 3,
-                                repeat: Infinity,
-                                ease: "easeInOut"
-                            }}
-                        >
-                            <div className="absolute inset-0 rounded-2xl border-2 border-primary/50 blur-sm" />
-                        </motion.div>
-
                         {/* Shine effect on hover */}
                         <motion.div
                             className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-20 z-10 pointer-events-none"
@@ -126,53 +112,11 @@ export default function HeroImage() {
                             {/* Subtle overlay gradient */}
                             <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
 
-                            {/* Scan line effect */}
-                            {isMounted && (
-                                <motion.div
-                                    className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent z-20 pointer-events-none"
-                                    animate={{
-                                        top: ['0%', '100%']
-                                    }}
-                                    transition={{
-                                        duration: 3,
-                                        repeat: Infinity,
-                                        ease: "linear",
-                                        repeatDelay: 1
-                                    }}
-                                />
-                            )}
-
-                            {/* Corner accents */}
-                            <motion.div
-                                className="absolute top-4 left-4 w-8 h-8 border-l-2 border-t-2 border-primary z-20"
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                                transition={{ delay: 1, duration: 0.5 }}
-                            />
-                            <motion.div
-                                className="absolute top-4 right-4 w-8 h-8 border-r-2 border-t-2 border-primary z-20"
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                                transition={{ delay: 1.1, duration: 0.5 }}
-                            />
-                            <motion.div
-                                className="absolute bottom-4 left-4 w-8 h-8 border-l-2 border-b-2 border-primary z-20"
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                                transition={{ delay: 1.2, duration: 0.5 }}
-                            />
-                            <motion.div
-                                className="absolute bottom-4 right-4 w-8 h-8 border-r-2 border-b-2 border-primary z-20"
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                                transition={{ delay: 1.3, duration: 0.5 }}
-                            />
-
                             {/* Floating particles around image */}
                             {isMounted && [...Array(8)].map((_, i) => (
                                 <motion.div
                                     key={i}
-                                    className="absolute w-1 h-1 bg-primary rounded-full"
+                                    className="absolute w-1 h-1 bg-white/20 rounded-full"
                                     initial={{
                                         x: `${(i % 4) * 33}%`,
                                         y: `${Math.floor(i / 4) * 100}%`,
@@ -181,7 +125,7 @@ export default function HeroImage() {
                                     animate={{
                                         x: [`${(i % 4) * 33}%`, `${(i % 4) * 33 + (Math.random() - 0.5) * 20}%`],
                                         y: [`${Math.floor(i / 4) * 100}%`, `${Math.floor(i / 4) * 100 + (Math.random() - 0.5) * 20}%`],
-                                        opacity: [0, 1, 0],
+                                        opacity: [0, 0.5, 0],
                                         scale: [0, 1.5, 0]
                                     }}
                                     transition={{
@@ -235,8 +179,8 @@ export default function HeroImage() {
                         className="absolute inset-0 opacity-[0.03]"
                         style={{
                             backgroundImage: `
-                                linear-gradient(rgba(255, 140, 66, 0.3) 1px, transparent 1px),
-                                linear-gradient(90deg, rgba(255, 140, 66, 0.3) 1px, transparent 1px)
+                                linear-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                                linear-gradient(90deg, rgba(0, 0, 0, 0.1) 1px, transparent 1px)
                             `,
                             backgroundSize: '50px 50px',
                         }}
