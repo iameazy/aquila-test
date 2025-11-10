@@ -13,9 +13,9 @@ export default function Navbar() {
 
   const navItems = [
     { name: 'SERVICES', href: '/services', hasDropdown: true },
-    { name: 'INDUSTRIES', href: '#industries', hasDropdown: true },
-    { name: 'ABOUT', href: '#about', hasDropdown: true },
-    { name: 'INSIGHTS', href: '#insights', hasDropdown: true },
+    { name: 'INDUSTRIES', href: 'industries', hasDropdown: true },
+    { name: 'ABOUT', href: 'about', hasDropdown: true },
+    { name: 'INSIGHTS', href: 'insights', hasDropdown: true },
   ]
 
   // Handle scroll behavior - hide on scroll down, show on scroll up
@@ -191,11 +191,12 @@ export default function Navbar() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
+                <Link href="/contact">
                 <motion.button 
                   className="px-6 py-2.5 bg-slate-700 rounded-full text-white text-sm font-bold relative overflow-hidden group"
                   whileHover={{ 
                     scale: 1.05,
-                    backgroundColor: '#475569'
+                    backgroundColor: '#FB8B3A'
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -213,6 +214,7 @@ export default function Navbar() {
                     }}
                   />
                 </motion.button>
+                </Link>
               </motion.div>
             </div>
 
