@@ -26,11 +26,9 @@ export default function ContactPageComplete() {
         const handleScroll = () => {
             const currentScrollY = window.scrollY
 
-            // Show navbar when scrolling up or at top
             if (currentScrollY < lastScrollY || currentScrollY < 10) {
                 setIsNavbarVisible(true)
             }
-            // Hide navbar when scrolling down
             else if (currentScrollY > lastScrollY && currentScrollY > 80) {
                 setIsNavbarVisible(false)
             }
@@ -39,7 +37,6 @@ export default function ContactPageComplete() {
         }
 
         window.addEventListener('scroll', handleScroll, { passive: true })
-
         return () => window.removeEventListener('scroll', handleScroll)
     }, [lastScrollY])
 
@@ -57,16 +54,16 @@ export default function ContactPageComplete() {
 
     return (
         <section>
-            {/* Background Image - FIXED TO VIEWPORT - Covers Everything */}
+            {/* Background Image - FIXED TO VIEWPORT */}
             <div className="fixed inset-0 z-0">
                 <Image
                     src="/images/contact/image.png"
                     alt="Background"
                     fill
-                    className="object-cover"
+                    className="object-cover object-[center_75%]"
                     priority
                 />
-                {/* Dark overlay for readability */}
+                {/* Dark overlay */}
                 <div className="absolute inset-0 bg-black/60" />
             </div>
 
@@ -79,46 +76,24 @@ export default function ContactPageComplete() {
                         }`}
                 >
                     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex items-center justify-between h-20">
+                        <div className="flex items-center justify-between h-16 lg:h-20">
 
                             {/* Logo */}
-                            <Link href="/" className="flex items-center gap-2 px-4 py-2 border-2 border-white rounded-full">
-                                <div className="w-6 h-6 border-2 border-white rounded-full flex items-center justify-center">
-                                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                            <Link href="/" className="flex items-center gap-2 px-3 py-1.5 lg:px-4 lg:py-2 border-2 border-white rounded-full">
+                                <div className="w-5 h-5 lg:w-6 lg:h-6 relative">
+                                    <Image
+                                        src="/images/contact/image2.png"  // Your logo path
+                                        alt="AlturaCyber Logo"
+                                        fill
+                                        className="object-contain"
+                                    />
                                 </div>
-                                <span className="text-white font-semibold text-sm">AlturaCyber</span>
-                                <span className="text-white text-xs border-l border-white pl-2 ml-2">LOGIN</span>
+                                <span className="text-white font-semibold text-xs lg:text-sm">AlturaCyber</span>
                             </Link>
 
                             {/* Desktop Menu */}
                             <div className="hidden lg:flex items-center gap-8">
 
-                                {/* Services Dropdown */}
-                                <div className="relative">
-                                    <button
-                                        onClick={() => setIsServicesOpen(!isServicesOpen)}
-                                        className="text-white text-sm font-medium flex items-center gap-1 hover:text-gray-300 transition-colors"
-                                    >
-                                        SERVICES
-                                        <span className="text-xs">▼</span>
-                                    </button>
-                                    {isServicesOpen && (
-                                        <div className="absolute top-full mt-2 w-48 bg-[#2a2a2a] rounded-lg shadow-lg py-2">
-                                            <Link href="/services/penetration-testing" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Penetration Testing
-                                            </Link>
-                                            <Link href="/services/risk-compliance" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Risk & Compliance
-                                            </Link>
-                                            <Link href="/services/incident-response" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Incident Response
-                                            </Link>
-                                            <Link href="/services/training" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Training
-                                            </Link>
-                                        </div>
-                                    )}
-                                </div>
 
                                 {/* Industries Dropdown */}
                                 <div className="relative">
@@ -222,7 +197,7 @@ export default function ContactPageComplete() {
 
                         {/* Mobile Menu */}
                         {isMobileMenuOpen && (
-                            <div className="lg:hidden py-4">
+                            <div className="lg:hidden py-4 border-t border-white/10">
                                 <div className="space-y-4">
                                     <Link href="/services" className="block text-white text-sm font-medium py-2">
                                         SERVICES
@@ -250,26 +225,26 @@ export default function ContactPageComplete() {
                     </div>
                 </nav>
 
-                {/* Add padding to prevent content from hiding under navbar */}
-                <div className="h-20" />
+                {/* Spacer for navbar */}
+                <div className="h-16 lg:h-20" />
 
-                {/* Contact Section - MUCH LONGER */}
-                <section className="flex-1 min-h-screen py-32 md:py-40 lg:py-48">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-start mb-32">
+                {/* Contact Section - RESPONSIVE */}
+                <section className="flex-1 min-h-screen py-8 px-4 sm:py-16 md:py-24 lg:py-40">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-20 mb-16 lg:mb-32">
 
                             {/* Left Side - Heading & Description */}
-                            <div className="text-white">
-                                <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8 leading-tight drop-shadow-2xl">
+                            <div className="text-white text-center lg:text-left">
+                                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 lg:mb-8 leading-tight drop-shadow-2xl">
                                     Request a
                                     <br />
                                     Consultation
                                 </h1>
-                                <div className="space-y-6 text-base sm:text-lg text-gray-100">
-                                    <p className="font-semibold drop-shadow-lg text-xl">
+                                <div className="space-y-3 lg:space-y-6 text-sm sm:text-base lg:text-lg text-gray-100">
+                                    <p className="font-normal lg:font-semibold drop-shadow-lg lg:text-2xl">
                                         Let's talk about your cybersecurity goals.
                                     </p>
-                                    <p className="drop-shadow-lg">
+                                    <p className="drop-shadow-lg text-xs sm:text-sm lg:text-2xl">
                                         Fill out the quick form, and our specialists will get back to you within 24 hours.
                                     </p>
                                 </div>
@@ -277,10 +252,10 @@ export default function ContactPageComplete() {
 
                             {/* Right Side - Form */}
                             <div className="w-full">
-                                <form onSubmit={handleSubmit} className="space-y-8">
+                                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 lg:space-y-8">
                                     {/* Full Name */}
                                     <div>
-                                        <label htmlFor="fullName" className="block text-sm text-gray-200 mb-3 drop-shadow font-medium">
+                                        <label htmlFor="fullName" className="block text-xs sm:text-sm text-gray-200 mb-2 drop-shadow font-medium">
                                             Full Name
                                         </label>
                                         <input
@@ -290,14 +265,14 @@ export default function ContactPageComplete() {
                                             value={formData.fullName}
                                             onChange={handleChange}
                                             placeholder="Enter your full name"
-                                            className="w-full px-6 py-5 bg-white/10 backdrop-blur-md text-white placeholder-gray-400 rounded-full border-2 border-white/20 focus:border-[#ff8c42] focus:outline-none transition-colors duration-300"
+                                            className="w-full px-4 py-3 sm:px-6 sm:py-4 lg:py-5 bg-white/10 backdrop-blur-md text-white text-sm placeholder-gray-400 rounded-full border-2 border-white/20 focus:border-[#ff8c42] focus:outline-none transition-colors duration-300"
                                             required
                                         />
                                     </div>
 
                                     {/* Email Address */}
                                     <div>
-                                        <label htmlFor="email" className="block text-sm text-gray-200 mb-3 drop-shadow font-medium">
+                                        <label htmlFor="email" className="block text-xs sm:text-sm text-gray-200 mb-2 drop-shadow font-medium">
                                             Email Address
                                         </label>
                                         <input
@@ -307,14 +282,14 @@ export default function ContactPageComplete() {
                                             value={formData.email}
                                             onChange={handleChange}
                                             placeholder="your@email.com"
-                                            className="w-full px-6 py-5 bg-white/10 backdrop-blur-md text-white placeholder-gray-400 rounded-full border-2 border-white/20 focus:border-[#ff8c42] focus:outline-none transition-colors duration-300"
+                                            className="w-full px-4 py-3 sm:px-6 sm:py-4 lg:py-5 bg-white/10 backdrop-blur-md text-white text-sm placeholder-gray-400 rounded-full border-2 border-white/20 focus:border-[#ff8c42] focus:outline-none transition-colors duration-300"
                                             required
                                         />
                                     </div>
 
                                     {/* Organization / Company */}
                                     <div>
-                                        <label htmlFor="company" className="block text-sm text-gray-200 mb-3 drop-shadow font-medium">
+                                        <label htmlFor="company" className="block text-xs sm:text-sm text-gray-200 mb-2 drop-shadow font-medium">
                                             Organization / Company
                                         </label>
                                         <input
@@ -324,14 +299,14 @@ export default function ContactPageComplete() {
                                             value={formData.company}
                                             onChange={handleChange}
                                             placeholder="Your company name"
-                                            className="w-full px-6 py-5 bg-white/10 backdrop-blur-md text-white placeholder-gray-400 rounded-full border-2 border-white/20 focus:border-[#ff8c42] focus:outline-none transition-colors duration-300"
+                                            className="w-full px-4 py-3 sm:px-6 sm:py-4 lg:py-5 bg-white/10 backdrop-blur-md text-white text-sm placeholder-gray-400 rounded-full border-2 border-white/20 focus:border-[#ff8c42] focus:outline-none transition-colors duration-300"
                                             required
                                         />
                                     </div>
 
                                     {/* Service Area of Interest */}
                                     <div>
-                                        <label htmlFor="serviceArea" className="block text-sm text-gray-200 mb-3 drop-shadow font-medium">
+                                        <label htmlFor="serviceArea" className="block text-xs sm:text-sm text-gray-200 mb-2 drop-shadow font-medium">
                                             Service Area of Interest
                                         </label>
                                         <select
@@ -339,7 +314,7 @@ export default function ContactPageComplete() {
                                             name="serviceArea"
                                             value={formData.serviceArea}
                                             onChange={handleChange}
-                                            className="w-full px-6 py-5 bg-white/10 backdrop-blur-md text-white rounded-full border-2 border-white/20 focus:border-[#ff8c42] focus:outline-none appearance-none cursor-pointer transition-colors duration-300"
+                                            className="w-full px-4 py-3 sm:px-6 sm:py-4 lg:py-5 bg-white/10 backdrop-blur-md text-white text-sm rounded-full border-2 border-white/20 focus:border-[#ff8c42] focus:outline-none appearance-none cursor-pointer transition-colors duration-300"
                                             required
                                         >
                                             <option value="" className="bg-gray-900">Select an option</option>
@@ -353,7 +328,7 @@ export default function ContactPageComplete() {
 
                                     {/* Message / Inquiry */}
                                     <div>
-                                        <label htmlFor="message" className="block text-sm text-gray-200 mb-3 drop-shadow font-medium">
+                                        <label htmlFor="message" className="block text-xs sm:text-sm text-gray-200 mb-2 drop-shadow font-medium">
                                             Message / Inquiry
                                         </label>
                                         <textarea
@@ -362,8 +337,8 @@ export default function ContactPageComplete() {
                                             value={formData.message}
                                             onChange={handleChange}
                                             placeholder="Tell us about your cybersecurity needs..."
-                                            rows={8}
-                                            className="w-full px-6 py-5 bg-white/10 backdrop-blur-md text-white placeholder-gray-400 rounded-3xl border-2 border-white/20 focus:border-[#ff8c42] focus:outline-none resize-none transition-colors duration-300"
+                                            rows={6}
+                                            className="w-full px-4 py-3 sm:px-6 sm:py-4 lg:py-5 bg-white/10 backdrop-blur-md text-white text-sm placeholder-gray-400 rounded-3xl border-2 border-white/20 focus:border-[#ff8c42] focus:outline-none resize-none transition-colors duration-300"
                                             required
                                         />
                                     </div>
@@ -371,7 +346,7 @@ export default function ContactPageComplete() {
                                     {/* Submit Button */}
                                     <button
                                         type="submit"
-                                        className="w-full px-8 py-5 bg-[#ff8c42] hover:bg-orange-600 text-black font-bold text-lg rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl"
+                                        className="w-full px-6 py-3 sm:px-8 sm:py-4 lg:py-5 bg-[#ff8c42] hover:bg-orange-600 text-black font-bold text-sm sm:text-base lg:text-lg rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl"
                                     >
                                         Request Consultation
                                     </button>
@@ -382,89 +357,171 @@ export default function ContactPageComplete() {
                     </div>
                 </section>
 
-                {/* Footer - Exact spacing like image */}
-                <footer className="mt-auto py-16 md:py-20">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        {/* 4 Column Grid */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-20">
+                <footer className="mt-auto py-12 sm:py-16 md:py-24 lg:py-44 px-4 sm:px-6">
+                    <div className="max-w-7xl mx-auto">
 
-                            {/* Column 1 - Brand */}
-                            <div className="text-left">
-                                <h3 className="text-2xl font-bold text-white mb-2 drop-shadow-lg leading-tight">
-                                    AlturaCyber —
+                        {/* Mobile Footer Layout (< lg) */}
+                        <div className="lg:hidden">
+                            {/* Brand Section */}
+                            <div className="mb-8">
+                                <div className="flex items-center gap-2 mb-4">
+                                    <div className="w-5 h-5 border-2 border-white rounded flex items-center justify-center">
+                                        <div className="w-1.5 h-1.5 bg-white rounded-full"></div>
+                                    </div>
+                                    <span className="text-white font-semibold text-base">AlturaCyber</span>
+                                </div>
+                                <h3 className="text-lg font-bold text-white mb-3 leading-tight">
+                                    AlturaCyber — Protecting What Matters Most
                                 </h3>
-                                <p className="text-base text-gray-200 drop-shadow leading-relaxed">
-                                    Protecting What Matters Most
+                                <p className="text-xs text-gray-300 leading-relaxed">
+                                    AlturaCyber is a cybersecurity agency delivering end-to-end protection and digital resilience for businesses
                                 </p>
                             </div>
 
-                            {/* Column 2 - Navigation Links */}
-                            <div className="text-left">
+                            {/* Two Column Links */}
+                            <div className="grid grid-cols-2 gap-6 mb-8">
+                                {/* Left Column */}
                                 <div className="space-y-5">
                                     {['Home', 'About', 'Services', 'Blog', 'Careers', 'Contact'].map((link) => (
                                         <Link key={link} href={`/${link.toLowerCase()}`}>
-                                            <span className="block text-base font-medium text-white hover:text-gray-300 transition-colors duration-200 drop-shadow">
+                                            <span className="block text-sm font-normal text-white hover:text-gray-300 transition-colors">
                                                 {link}
                                             </span>
                                         </Link>
                                     ))}
                                 </div>
-                            </div>
 
-                            {/* Column 3 - Social & Legal */}
-                            <div className="text-left">
-                                <div className="space-y-19">
-                                    {[
-                                        { name: 'LinkedIn', url: 'https://linkedin.com' },
-                                        { name: 'X (Twitter)', url: 'https://twitter.com' },
-                                        { name: 'Privacy Policy', url: '/privacy' },
-                                        { name: 'Terms of Service', url: '/terms' }
-                                    ].map((link) => (
-                                        <Link key={link.name} href={link.url}>
-                                            <span className="block text-base font-medium text-white hover:text-gray-300 transition-colors duration-200 drop-shadow">
-                                                {link.name}
-                                            </span>
-                                        </Link>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Column 4 - Contact Info */}
-                            <div className="text-left">
+                                {/* Right Column */}
                                 <div className="space-y-5">
-                                    {['Email', 'Phone', 'Address'].map((item) => (
-                                        <p key={item} className="text-base font-semibold text-white drop-shadow">
-                                            {item}
-                                        </p>
-                                    ))}
-                                </div>
-                            </div>
-
-                        </div>
-
-                        {/* Bottom Bar - Single Line with Small Text */}
-                        <div className="pt-8">
-                            <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
-                                {/* Small text in single line */}
-                                <p className="text-xs text-gray-300 drop-shadow">
-                                    AlturaCyber is a cybersecurity agency delivering end-to-end protection and digital resilience for businesses
-                                </p>
-
-                                {/* Buttons */}
-                                <div className="flex gap-3 items-center flex-shrink-0">
-                                    <button className="flex items-center gap-2 px-5 py-2.5 border-2 border-gray-600 hover:border-gray-500 rounded-full text-xs text-gray-200 transition-colors duration-200 bg-black/30 backdrop-blur-sm">
-                                        <span>🌐</span>
-                                        <span className="font-medium">Language</span>
-                                    </button>
-                                    <Link href="/contact">
-                                        <button className="px-6 py-2.5 bg-[#ff8c42] hover:bg-orange-600 text-black text-xs font-bold rounded-full uppercase transition-colors duration-300 shadow-lg tracking-wide">
-                                            Consultation
-                                        </button>
+                                    <Link href="https://linkedin.com">
+                                        <span className="block text-sm font-normal text-white hover:text-gray-300 transition-colors">
+                                            LinkedIn
+                                        </span>
                                     </Link>
+                                    <Link href="https://twitter.com">
+                                        <span className="block text-sm font-normal text-white hover:text-gray-300 transition-colors">
+                                            X (Twitter)
+                                        </span>
+                                    </Link>
+                                    {/* Empty spaces */}
+                                    <div className="h-5"></div>
+                                    <div className="h-5"></div>
+                                    <p className="text-sm font-normal text-white">Email</p>
+                                    <p className="text-sm font-normal text-white">Phone</p>
+                                </div>
+                            </div>
+
+                            {/* Privacy & Terms */}
+                            <div className="grid grid-cols-2 gap-6 mb-8">
+                                <Link href="/privacy">
+                                    <span className="block text-sm font-normal text-white hover:text-gray-300 transition-colors">
+                                        Privacy Policy
+                                    </span>
+                                </Link>
+                                <Link href="/terms">
+                                    <span className="block text-sm font-normal text-white hover:text-gray-300 transition-colors">
+                                        Terms of Service
+                                    </span>
+                                </Link>
+                            </div>
+
+                            {/* Bottom Buttons - Full Width Stack */}
+                            <div className="space-y-3">
+                                <button className="w-full flex items-center justify-center gap-2 px-5 py-3 border-2 border-gray-500 hover:border-gray-400 rounded-full text-sm text-white transition-colors duration-200 bg-transparent">
+                                    <span>🌐</span>
+                                    <span className="font-normal">Language</span>
+                                </button>
+                                <Link href="/contact" className="block">
+                                    <button className="w-full px-6 py-3 bg-[#ff8c42] hover:bg-orange-600 text-black text-sm font-bold rounded-full uppercase transition-colors duration-300 shadow-lg tracking-wide">
+                                        Consultation
+                                    </button>
+                                </Link>
+                            </div>
+                        </div>
+
+                        {/* Desktop Footer Layout (lg+) */}
+                        <div className="hidden lg:block">
+                            {/* 4 Column Grid */}
+                            <div className="grid grid-cols-4 gap-12 mb-18">
+
+                                {/* Column 1 - Brand */}
+                                <div className="text-left">
+                                    <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-lg leading-tight">
+                                        AlturaCyber —
+                                    </h3>
+                                    <p className="text-2xl font-bold text-gray-200 drop-shadow leading-relaxed">
+                                        Protecting What Matters Most
+                                    </p>
+                                </div>
+
+                                {/* Column 2 - Navigation Links */}
+                                <div className="text-left">
+                                    <div className="flex flex-col gap-14">
+                                        {['Home', 'About', 'Services', 'Blog', 'Careers', 'Contact'].map((link) => (
+                                            <Link key={link} href={`/${link.toLowerCase()}`}>
+                                                <span className="block text-base font-medium text-white hover:text-gray-300 transition-colors duration-200 drop-shadow">
+                                                    {link}
+                                                </span>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Column 3 - Social & Legal */}
+                                <div className="text-left">
+                                    <div className="flex flex-col gap-14">
+                                        {[
+                                            { name: 'LinkedIn', url: 'https://linkedin.com' },
+                                            { name: 'X (Twitter)', url: 'https://twitter.com' },
+                                            { name: 'Privacy Policy', url: '/privacy' },
+                                            { name: 'Terms of Service', url: '/terms' }
+                                        ].map((link) => (
+                                            <Link key={link.name} href={link.url}>
+                                                <span className="block text-base font-medium text-white hover:text-gray-300 transition-colors duration-200 drop-shadow">
+                                                    {link.name}
+                                                </span>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                {/* Column 4 - Contact Info */}
+                                <div className="text-left">
+                                    <div className="flex flex-col gap-14">
+                                        {['Email', 'Phone', 'Address'].map((item) => (
+                                            <p key={item} className="text-base font-semibold text-white drop-shadow">
+                                                {item}
+                                            </p>
+                                        ))}
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            {/* Bottom Bar - Desktop */}
+                            <div className="pt-44">
+                                <div className="flex flex-row justify-between items-center gap-6">
+                                    <p className="text-xs text-gray-300 drop-shadow">
+                                        AlturaCyber is a cybersecurity agency delivering end-to-end protection and digital resilience for businesses
+                                    </p>
+
+                                    <div className="flex gap-3 items-center flex-shrink-0">
+                                        <button className="flex items-center gap-2 px-5 py-2.5 border-2 border-gray-600 hover:border-gray-500 rounded-full text-xs text-gray-200 transition-colors duration-200 bg-black/30 backdrop-blur-sm">
+                                            <span>🌐</span>
+                                            <span className="font-medium">Language</span>
+                                        </button>
+                                        <Link href="/contact">
+                                            <button className="px-6 py-2.5 bg-[#ff8c42] hover:bg-orange-600 text-black text-xs font-bold rounded-full uppercase transition-colors duration-300 shadow-lg tracking-wide">
+                                                Consultation
+                                            </button>
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
+
                 </footer>
             </div>
         </section>
