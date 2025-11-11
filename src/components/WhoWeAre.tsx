@@ -29,7 +29,6 @@ const WhoWeAre = () => {
 
   return (
     <section
-      id='about'
       ref={sectionRef}
       className="relative min-h-screen bg-[#121212] pb-64 overflow-hidden md:px-8 lg:px-12"
     >

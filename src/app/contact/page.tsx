@@ -1,4 +1,4 @@
-import ContactPage from '@/components/ContactPage'
+import ContactPage from '@/app/contact/components/ContactPage'
 
 export const metadata = {
   title: 'Contact Us - AlturaCyber',

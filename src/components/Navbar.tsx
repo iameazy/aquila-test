@@ -14,7 +14,7 @@ export default function Navbar() {
   const navItems = [
     { name: 'SERVICES', href: '/services', hasDropdown: true },
     { name: 'INDUSTRIES', href: 'industries', hasDropdown: true },
-    { name: 'ABOUT', href: 'about', hasDropdown: true },
+    { name: 'ABOUT', href: '/about', hasDropdown: true },
     { name: 'INSIGHTS', href: 'insights', hasDropdown: true },
   ]
 

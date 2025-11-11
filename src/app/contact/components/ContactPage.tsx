@@ -104,19 +104,7 @@ export default function ContactPageComplete() {
                                         INDUSTRIES
                                         <span className="text-xs">▼</span>
                                     </button>
-                                    {isIndustriesOpen && (
-                                        <div className="absolute top-full mt-2 w-48 bg-[#2a2a2a] rounded-lg shadow-lg py-2">
-                                            <Link href="/industries/banking" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Banking
-                                            </Link>
-                                            <Link href="/industries/healthcare" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Healthcare
-                                            </Link>
-                                            <Link href="/industries/government" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Government
-                                            </Link>
-                                        </div>
-                                    )}
+                                    
                                 </div>
 
                                 {/* About Dropdown */}
@@ -128,19 +116,7 @@ export default function ContactPageComplete() {
                                         ABOUT
                                         <span className="text-xs">▼</span>
                                     </button>
-                                    {isAboutOpen && (
-                                        <div className="absolute top-full mt-2 w-48 bg-[#2a2a2a] rounded-lg shadow-lg py-2">
-                                            <Link href="/about" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                About Us
-                                            </Link>
-                                            <Link href="/team" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Team
-                                            </Link>
-                                            <Link href="/careers" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Careers
-                                            </Link>
-                                        </div>
-                                    )}
+                                    
                                 </div>
 
                                 {/* Insights Dropdown */}
@@ -152,19 +128,7 @@ export default function ContactPageComplete() {
                                         INSIGHTS
                                         <span className="text-xs">▼</span>
                                     </button>
-                                    {isInsightsOpen && (
-                                        <div className="absolute top-full mt-2 w-48 bg-[#2a2a2a] rounded-lg shadow-lg py-2">
-                                            <Link href="/insights/blog" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Blog
-                                            </Link>
-                                            <Link href="/insights/case-studies" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Case Studies
-                                            </Link>
-                                            <Link href="/insights/resources" className="block px-4 py-2 text-sm text-gray-300 hover:bg-[#3a3a3a] hover:text-white">
-                                                Resources
-                                            </Link>
-                                        </div>
-                                    )}
+                                    
                                 </div>
 
                                 {/* Partner with us */}
