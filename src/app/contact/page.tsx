@@ -1,4 +1,6 @@
 import ContactPage from '@/app/contact/components/ContactPage'
+import Navbar from '@/components/Navbar'
+import { main } from 'framer-motion/client'
 
 export const metadata = {
   title: 'Contact Us - AlturaCyber',
@@ -6,5 +8,10 @@ export const metadata = {
 }
 
 export default function ContactRoute() {
-  return <ContactPage />
+  return (
+    <main>
+      <Navbar />
+      <ContactPage />
+    </main>
+  )
 }

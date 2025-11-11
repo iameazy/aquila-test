@@ -1,9 +1,11 @@
 'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
 export default function ContactPageComplete() {
+
     const [formData, setFormData] = useState({
         fullName: '',
         email: '',
@@ -55,7 +57,7 @@ export default function ContactPageComplete() {
     return (
         <section>
             {/* Background Image - FIXED TO VIEWPORT */}
-            <div className="fixed inset-0 z-0">
+            <div className="fixed inset-0 z-0 pointer-events-none">
                 <Image
                     src="/images/contact/image.png"
                     alt="Background"
@@ -64,130 +66,11 @@ export default function ContactPageComplete() {
                     priority
                 />
                 {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black/60" />
+                <div className="absolute inset-0 bg-black/60 pointer-events-none" />
             </div>
 
             {/* All Content Sits on Top */}
             <div className="relative z-10 min-h-screen flex flex-col">
-
-                {/* Navbar - Auto-hide on scroll */}
-                <nav
-                    className={`fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-md transition-transform duration-300 ${isNavbarVisible ? 'translate-y-0' : '-translate-y-full'
-                        }`}
-                >
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div className="flex items-center justify-between h-16 lg:h-20">
-
-                            {/* Logo */}
-                            <Link href="/" className="flex items-center gap-2 px-3 py-1.5 lg:px-4 lg:py-2 border-2 border-white rounded-full">
-                                <div className="w-5 h-5 lg:w-6 lg:h-6 relative">
-                                    <Image
-                                        src="/images/contact/image2.png"  // Your logo path
-                                        alt="AlturaCyber Logo"
-                                        fill
-                                        className="object-contain"
-                                    />
-                                </div>
-                                <span className="text-white font-semibold text-xs lg:text-sm">AlturaCyber</span>
-                            </Link>
-
-                            {/* Desktop Menu */}
-                            <div className="hidden lg:flex items-center gap-8">
-
-
-                                {/* Industries Dropdown */}
-                                <div className="relative">
-                                    <button
-                                        onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
-                                        className="text-white text-sm font-medium flex items-center gap-1 hover:text-gray-300 transition-colors"
-                                    >
-                                        INDUSTRIES
-                                        <span className="text-xs">▼</span>
-                                    </button>
-                                    
-                                </div>
-
-                                {/* About Dropdown */}
-                                <div className="relative">
-                                    <button
-                                        onClick={() => setIsAboutOpen(!isAboutOpen)}
-                                        className="text-white text-sm font-medium flex items-center gap-1 hover:text-gray-300 transition-colors"
-                                    >
-                                        ABOUT
-                                        <span className="text-xs">▼</span>
-                                    </button>
-                                    
-                                </div>
-
-                                {/* Insights Dropdown */}
-                                <div className="relative">
-                                    <button
-                                        onClick={() => setIsInsightsOpen(!isInsightsOpen)}
-                                        className="text-white text-sm font-medium flex items-center gap-1 hover:text-gray-300 transition-colors"
-                                    >
-                                        INSIGHTS
-                                        <span className="text-xs">▼</span>
-                                    </button>
-                                    
-                                </div>
-
-                                {/* Partner with us */}
-                                <Link href="/partner" className="text-white text-sm font-medium hover:text-gray-300 transition-colors">
-                                    PARTNER WITH US
-                                </Link>
-
-                                {/* Consultation Button */}
-                                <Link href="/contact">
-                                    <button className="px-6 py-2 bg-[#ff8c42] hover:bg-orange-600 text-black text-sm font-semibold rounded-full uppercase transition-colors duration-300">
-                                        CONSULTATION
-                                    </button>
-                                </Link>
-                            </div>
-
-                            {/* Mobile Menu Button */}
-                            <button
-                                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                                className="lg:hidden text-white p-2"
-                            >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    {isMobileMenuOpen ? (
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                                    ) : (
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                                    )}
-                                </svg>
-                            </button>
-                        </div>
-
-                        {/* Mobile Menu */}
-                        {isMobileMenuOpen && (
-                            <div className="lg:hidden py-4 border-t border-white/10">
-                                <div className="space-y-4">
-                                    <Link href="/services" className="block text-white text-sm font-medium py-2">
-                                        SERVICES
-                                    </Link>
-                                    <Link href="/industries" className="block text-white text-sm font-medium py-2">
-                                        INDUSTRIES
-                                    </Link>
-                                    <Link href="/about" className="block text-white text-sm font-medium py-2">
-                                        ABOUT
-                                    </Link>
-                                    <Link href="/insights" className="block text-white text-sm font-medium py-2">
-                                        INSIGHTS
-                                    </Link>
-                                    <Link href="/partner" className="block text-white text-sm font-medium py-2">
-                                        PARTNER WITH US
-                                    </Link>
-                                    <Link href="/contact">
-                                        <button className="w-full px-6 py-2 bg-[#ff8c42] hover:bg-orange-600 text-black text-sm font-semibold rounded-full uppercase transition-colors duration-300">
-                                            CONSULTATION
-                                        </button>
-                                    </Link>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-                </nav>
 
                 {/* Spacer for navbar */}
                 <div className="h-16 lg:h-20" />

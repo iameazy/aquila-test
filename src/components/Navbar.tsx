@@ -332,7 +332,7 @@ export default function Navbar() {
                   exit={{ opacity: 0, x: 50 }}
                   transition={{ duration: 0.3, delay: 0.4 }}
                 >
-                  <Link href="/partner">
+                  <Link href="">
                     <motion.div
                       className="block text-black text-sm font-medium py-3 px-4 rounded-lg relative overflow-hidden cursor-pointer"
                       onClick={() => setIsOpen(false)}
