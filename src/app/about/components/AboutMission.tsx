@@ -9,9 +9,9 @@ export default function AboutMission() {
     ]
 
     return (
-        <section className="bg-black py-16 sm:py-20 lg:py-24 relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
+        <section className="bg-black pt-16 sm:pt-20 lg:pt-24 relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+
                 {/* Stats Section */}
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-16 lg:mb-24">
                     {stats.map((stat, index) => (
@@ -28,17 +28,22 @@ export default function AboutMission() {
 
                 {/* Mission Blocks */}
                 <div className="space-y-8 lg:space-y-12">
-                    
+
                     {/* First Mission Block */}
                     <div className="border-2 border-dashed border-gray-600 rounded-lg p-6 sm:p-8 lg:p-10">
                         <div className="flex flex-col sm:flex-row gap-6 items-start">
-                            {/* Icon */}
+                            {/* Icon with Image */}
                             <div className="flex-shrink-0">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-white rounded-full flex items-center justify-center">
-                                    <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full"></div>
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 relative">
+                                    <Image
+                                        src="/images/about/logo.png"  // Your icon path
+                                        alt="Mission Icon"
+                                        fill
+                                        className="object-contain"
+                                    />
                                 </div>
                             </div>
-                            
+
                             {/* Text Content */}
                             <div className="flex-1">
                                 <p className="text-white text-sm sm:text-base lg:text-lg leading-relaxed">
@@ -53,11 +58,16 @@ export default function AboutMission() {
                         <div className="flex flex-col sm:flex-row gap-6 items-start">
                             {/* Icon */}
                             <div className="flex-shrink-0">
-                                <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-white rounded-full flex items-center justify-center">
-                                    <div className="w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full"></div>
+                                <div className="w-10 h-10 sm:w-12 sm:h-12 relative">
+                                    <Image
+                                        src="/images/about/logo.png"  // Your icon path
+                                        alt="Mission Icon"
+                                        fill
+                                        className="object-contain"
+                                    />
                                 </div>
                             </div>
-                            
+
                             {/* Text Content */}
                             <div className="flex-1">
                                 <p className="text-white text-sm sm:text-base lg:text-lg leading-relaxed">
@@ -71,6 +81,18 @@ export default function AboutMission() {
             </div>
 
             {/* Curved transition */}
+            <div className="relative z-10">
+                <svg
+                    className="w-full h-32 sm:h-40 md:h-52"
+                    viewBox="0 0 1440 160"
+                    preserveAspectRatio="none"
+                >
+                    <path
+                        d="M0,80 C240,26.7 480,0 720,0 C960,0 1200,26.7 1440,80 L1440,160 L0,160 Z"
+                        fill="white"
+                    />
+                </svg>
+            </div>
         </section>
     )
 }
