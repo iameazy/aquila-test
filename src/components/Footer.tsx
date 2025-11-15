@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 export default function CTAFooter() {
     const [email, setEmail] = useState('')
-    
+
     const headingText = "Partner with AlturaCyber today and take control of your organization's digital security"
 
     return (
@@ -60,9 +60,10 @@ export default function CTAFooter() {
                                     placeholder="your email"
                                     className="flex-1 px-4 sm:px-6 py-3 sm:py-4 bg-transparent text-white placeholder-gray-400 focus:outline-none text-sm sm:text-base"
                                 />
-                                
-                                <button className="px-6 sm:px-8 py-3 sm:py-4 bg-[#ff8c42] hover:bg-orange-600 text-black text-sm sm:text-base font-semibold rounded-full whitespace-nowrap transition-colors duration-300">
-                                    Get a Free Security Consultation
+
+                                <button className="px-4 xs:px-6 sm:px-8 py-3 sm:py-4 bg-[#ff8c42] hover:bg-orange-600 text-black text-xs xs:text-sm sm:text-base font-semibold rounded-full whitespace-nowrap transition-colors duration-300">
+                                    <span className="hidden sm:inline">Get a Free Security Consultation</span>
+                                    <span className="sm:hidden">Get Free Consultation</span>
                                 </button>
                             </div>
 

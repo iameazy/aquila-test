@@ -52,7 +52,7 @@ export default function Navbar() {
         initial={{ y: -100 }}
         animate={{ 
           y: hidden ? -100 : 0,
-          backgroundColor: 'rgba(255, 255, 255, 0)'
+          backgroundColor: isScrolled ? 'rgba(0, 0, 0, 0.65)' : 'rgba(0, 0, 0, 0)'
         }}
         transition={{ duration: 0.3 }}
         className="fixed top-0 w-full backdrop-blur-sm z-50"
@@ -193,10 +193,10 @@ export default function Navbar() {
               >
                 <Link href="/contact">
                 <motion.button 
-                  className="px-6 py-2.5 bg-slate-700 rounded-full text-white text-sm font-bold relative overflow-hidden group"
+                  className="px-6 py-2.5 bg-[#FB8B3A] rounded-full text-white text-sm font-bold relative overflow-hidden group"
                   whileHover={{ 
                     scale: 1.05,
-                    backgroundColor: '#FB8B3A'
+                    backgroundColor: '#475569'
                   }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -368,10 +368,11 @@ export default function Navbar() {
                   transition={{ duration: 0.3, delay: 0.5 }}
                   className="pt-4"
                 >
+                  <Link href="/contact">
                   <motion.button 
-                    className="w-full px-6 py-3 bg-slate-700 hover:bg-slate-600 rounded-full text-white text-sm font-bold relative overflow-hidden"
+                    className="w-full px-6 py-3 bg-slate-600 hover:bg-slate-700 rounded-full text-white text-sm font-bold relative overflow-hidden"
                     onClick={() => setIsOpen(false)}
-                    whileHover={{ scale: 1.02 }}
+                    whileHover={{ scale: 1.0 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     <span className="relative z-10">CONSULTATION</span>
@@ -387,6 +388,7 @@ export default function Navbar() {
                       }}
                     />
                   </motion.button>
+                  </Link>
                 </motion.div>
               </div>
 
@@ -397,7 +399,7 @@ export default function Navbar() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.3, delay: 0.6 }}
               >
-                <p className="text-xs text-black/40">© 2024 AlturaCyber</p>
+              
               </motion.div>
             </motion.div>
           </>

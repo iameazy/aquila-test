@@ -11,7 +11,7 @@ interface Service {
 }
 
 export default function AboutServices() {
-    const services: Service[] = [  // ← Add type annotation
+    const services: Service[] = [
         {
             iconSrc: '/images/about/icon1.png',
             iconAlt: 'safe icon',
@@ -101,20 +101,20 @@ export default function AboutServices() {
     ]
 
     return (
-        <section className="bg-white">
-            <div className="max-w-7xl mx-auto lg:px-44">
+        <section className="bg-white py-0 xs:py-10 sm:py-12 md:pt-14 lg:pt-16 lg:py-0">
+            <div className="max-w-7xl mx-auto px-4 xs:px-5 sm:px-6 md:px-8 lg:px-12 xl:px-44">
 
-                <div className="space-y-6 lg:space-y-8">
+                <div className="space-y-4 xs:space-y-5 sm:space-y-6 md:space-y-7 lg:space-y-8">
                     {services.map((service, index) => (
                         <div
                             key={index}
-                            className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-xl"
+                            className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl xs:rounded-2xl p-4 xs:p-5 sm:p-6 md:p-8 lg:p-10 shadow-xl"
                         >
-                            <div className="flex flex-col sm:flex-row gap-6 items-start">
+                            <div className="flex flex-col sm:flex-row gap-4 xs:gap-5 sm:gap-6 items-start">
 
                                 {/* Icon */}
                                 <div className="flex-shrink-0">
-                                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl flex items-center justify-center shadow-lg">
+                                    <div className="w-14 h-14 xs:w-16 xs:h-16 sm:w-18 sm:h-18 md:w-20 md:h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-xl xs:rounded-2xl flex items-center justify-center shadow-lg">
                                         {service.iconSrc ? (
                                             <Image
                                                 src={service.iconSrc}
@@ -122,9 +122,10 @@ export default function AboutServices() {
                                                 width={48}
                                                 height={48}
                                                 className="object-contain"
+                                                sizes="(max-width: 640px) 56px, (max-width: 768px) 64px, 80px"
                                             />
                                         ) : (
-                                            <span className="text-3xl sm:text-4xl">
+                                            <span className="text-2xl xs:text-3xl sm:text-4xl">
                                                 {service.icon || '🔒'}
                                             </span>
                                         )}
@@ -132,25 +133,25 @@ export default function AboutServices() {
                                 </div>
 
                                 {/* Content */}
-                                <div className="flex-1">
-                                    <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4">
+                                <div className="flex-1 w-full">
+                                    <h3 className="text-lg xs:text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-white mb-2 xs:mb-3 sm:mb-4">
                                         {service.title}
                                     </h3>
 
-                                    <p className="text-sm sm:text-base text-blue-50 mb-6 leading-relaxed">
+                                    <p className="text-xs xs:text-sm sm:text-base text-blue-50 mb-4 xs:mb-5 sm:mb-6 leading-relaxed">
                                         {service.description}
                                     </p>
 
-                                    <div className="bg-white rounded-xl p-4 sm:p-6">
-                                        <h4 className="text-sm font-bold text-gray-900 mb-4">
+                                    <div className="bg-white rounded-lg xs:rounded-xl p-3 xs:p-4 sm:p-6">
+                                        <h4 className="text-xs xs:text-sm font-bold text-gray-900 mb-3 xs:mb-4">
                                             Key Areas:
                                         </h4>
 
-                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 xs:gap-x-7 sm:gap-x-8 gap-y-1.5 xs:gap-y-2">
                                             {service.keyAreas.map((area, areaIndex) => (
                                                 area && (
                                                     <div key={areaIndex} className="flex items-start">
-                                                        <span className="text-gray-700 text-sm">
+                                                        <span className="text-gray-700 text-xs xs:text-sm">
                                                             {area}
                                                         </span>
                                                     </div>
@@ -168,9 +169,9 @@ export default function AboutServices() {
             </div>
 
             {/* Curved transition */}
-            <div className="relative ">
+            <div className="relative -mb-1">
                 <svg
-                    className="w-full md:h-64"
+                    className="w-full h-32 xs:h-40 sm:h-40 md:h-56 lg:h-64"
                     viewBox="0 0 1440 160"
                     preserveAspectRatio="none"
                 >
